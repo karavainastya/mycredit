@@ -77,7 +77,7 @@ def main():
     #st.sidebar.subheader("Приложение создано для курса Diving into Darkness of Data Science")
     #st.sidebar.text("Разработчик - Каравай А.Л.")
                 
-    #DAYS_EMPLOYED = st.slider('Стаж работы (в днях)', 0, 100)           
+    #DAYS_EMPLOYED = st.slider('Стаж работы (в днях)', -17000, 0)           
     CODE_GENDER_M =st.selectbox("Женщина", ['0', '1']) 
     CODE_GENDER_F =st.selectbox("Мужчина", ['0', '1'])
     DAYS_BIRTH = st.slider('Возраст клиента (в днях)', -25000, 0)            
