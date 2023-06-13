@@ -1,11 +1,21 @@
 import sklearn
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from imblearn.over_sampling import SMOTE
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import classification_report, accuracy_score, confusion_matrix, precision_score, recall_score, roc_auc_score
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix
 
 #from sklearn.ensemble import RandomForestClassifier
-from sklearn.ensemble import GradientBoostingClassifier
+#from sklearn.ensemble import GradientBoostingClassifier
 
-import streamlit as st
+#import streamlit as st
 import pickle
-import numpy as np
+
 
 import base64
 @st.cache(allow_output_mutation=True)
@@ -30,8 +40,8 @@ def set_png_as_page_bg(png_file):
 set_png_as_page_bg('6.JPG')
 
 
-classifier_name=['XGBoost', 'Гадание на кофейной гуще']
-option = st.sidebar.selectbox('Евгений Викторович, какой алгоритм запустить?', classifier_name)
+classifier_name=['Логистическая регрессия', 'LightGBM']
+option = st.sidebar.selectbox('Какой алгоритм запустить?', classifier_name)
 st.subheader(option)
 
 
@@ -39,8 +49,8 @@ st.subheader(option)
 #Importing model and label encoders
 model=pickle.load(open("final_xg_model.pkl","rb"))
 #model_1 = pickle.load(open("final_rf_model.pkl","rb"))
-le_pik=pickle.load(open("label_encoding_for_gender.pkl","rb"))
-le1_pik=pickle.load(open("label_encoding_for_geo.pkl","rb"))
+#le_pik=pickle.load(open("label_encoding_for_gender.pkl","rb"))
+#le1_pik=pickle.load(open("label_encoding_for_geo.pkl","rb"))
 
 
 def predict_churn(CreditScore, Geo, Gen, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary):
@@ -57,7 +67,7 @@ def predict_churn(CreditScore, Geo, Gen, Age, Tenure, Balance, NumOfProducts, Ha
 
 
 def main():
-    st.title("Прогноз оттока клиентов")
+    st.title("Прогноз вероятности дефолта клиента")
     html_temp = """
     <div style="background-color:white ;padding:10px">
     <h2 style="color:red;text-align:center;">Заполни форму</h2>
@@ -70,7 +80,7 @@ def main():
 
 
     st.sidebar.subheader("Приложение создано для курса Diving into Darkness of Data Science")
-    st.sidebar.text("Разработчик - Братковский Е.В.")
+    st.sidebar.text("Разработчик - Каравай А.Л.")
 
 
     CreditScore = st.slider('Скоринговый балл', 300, 900)
@@ -108,7 +118,7 @@ def main():
 
     if st.button('Сделать прогноз'):
         output = predict_churn(CreditScore, Geo, Gen, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary)
-        st.success('Вероятность оттока составляет {}'.format(output))
+        st.success('Вероятность дефолта составляет {}'.format(output))
         st.balloons()
 
         if output >= 0.5:
