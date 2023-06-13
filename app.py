@@ -55,7 +55,8 @@ NAME_INCOME_TYPE_Businessman,  REGION_RATING_CLIENT):
     input = np.array([[DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, 
 NAME_INCOME_TYPE_Businessman,  REGION_RATING_CLIENT]]).astype(np.float64)
     if option == 'LogisticRegression':
-        prediction = nastya.predict_proba(x_test)
+        #prediction = nastya.predict_proba(x_test)
+        prediction = model.predict_proba(input)
         pred = '{0:.{1}f}'.format(prediction[0][0], 2)
 
     else:
