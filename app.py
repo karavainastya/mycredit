@@ -102,12 +102,12 @@ def main():
           
 
 
-    churn_html = """  
+    default_html = """  
               <div style="background-color:#f44336;padding:20px >
                <h2 style="color:red;text-align:center;"> К сожалению, велика вероятность, что клиент уйдет в дефолт.</h2>
                </div>
             """
-    no_churn_html = """  
+    no_default_html = """  
               <div style="background-color:#94be8d;padding:20px >
                <h2 style="color:green ;text-align:center;"> Вероятно, кредит будет погашен!!!</h2>
                </div>
@@ -121,10 +121,10 @@ NAME_INCOME_TYPE_Maternity leave, REGION_RATING_CLIENT)
         st.balloons()
 
         if output >= 0.5:
-            st.markdown(churn_html, unsafe_allow_html= True)
+            st.markdown(default_html, unsafe_allow_html= True)
 
         else:
-            st.markdown(no_churn_html, unsafe_allow_html= True)
+            st.markdown(no_default_html, unsafe_allow_html= True)
 
 if __name__=='__main__':
     main()
