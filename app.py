@@ -75,7 +75,7 @@ def main():
     st.markdown(html_temp, unsafe_allow_html=True
 
     #st.sidebar.subheader("Приложение создано для курса Diving into Darkness of Data Science")
-    st.sidebar.text("Разработчик - Каравай А.Л.")
+    #st.sidebar.text("Разработчик - Каравай А.Л.")
                 
     DAYS_EMPLOYED = st.slider('Стаж работы (в днях)', -17000, 0)           
       
