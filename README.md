@@ -1,1 +1,1 @@
-# mycredit
+# Churn prediction model for bank.
