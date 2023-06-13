@@ -50,10 +50,10 @@ model=pickle.load(open("model.pkl","rb"))
 #le1_pik=pickle.load(open("label_encoding_for_geo.pkl","rb"))
 
     
-def predict_default(DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_EDUCATION_TYPE, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State servant, 
+def predict_default(DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State servant, 
 NAME_INCOME_TYPE_Commercial associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman, 
 NAME_INCOME_TYPE_Maternity leave, REGION_RATING_CLIENT):
-    input = np.array([[DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_EDUCATION_TYPE, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State servant, 
+    input = np.array([[DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State servant, 
 NAME_INCOME_TYPE_Commercial associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman, 
 NAME_INCOME_TYPE_Maternity leave, REGION_RATING_CLIENT]]).astype(np.float64)
     if option == 'LogisticRegression':
