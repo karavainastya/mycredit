@@ -1,11 +1,18 @@
 import sklearn
 
-#from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
+
+from sklearn.linear_model import LogisticRegression
+from sklearn import metrics
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
+from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_curve
 
 import streamlit as st
 import pickle
 import numpy as np
+
 
 import base64
 @st.cache(allow_output_mutation=True)
@@ -30,7 +37,7 @@ def set_png_as_page_bg(png_file):
 set_png_as_page_bg('default1.jpg')
 
 
-classifier_name=['Логистическая регрессия', 'LightGBM']
+classifier_name=['LogisticRegression', 'LightGBM']
 option = st.sidebar.selectbox('Какой алгоритм запустить?', classifier_name)
 st.subheader(option)
 
@@ -42,14 +49,22 @@ model=pickle.load(open("model.pkl","rb"))
 #le_pik=pickle.load(open("label_encoding_for_gender.pkl","rb"))
 #le1_pik=pickle.load(open("label_encoding_for_geo.pkl","rb"))
 
-def predict_default(DAYS_EMPLOYED, CODE_GENDER, DAYS_BIRTH, NAME_EDUCATION_TYPE, NAME_INCOME_TYPE, REGION_RATING_CLIENT):
-    input = np.array([[DAYS_EMPLOYED, CODE_GENDER, DAYS_BIRTH, NAME_EDUCATION_TYPE, NAME_INCOME_TYPE, REGION_RATING_CLIENT]]).astype(np.float64)
-    if option == 'Логистическая регрессия':
-        prediction = model.predict_proba(input)
+'Lower secondary' : 0, 'Secondary / secondary special' : 1,
+'Incomplete higher' : 2, 'Higher education' : 3, 'Academic degree' : 4
+             
+    
+def predict_default(DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_EDUCATION_TYPE, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State servant, 
+NAME_INCOME_TYPE_Commercial associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman, 
+NAME_INCOME_TYPE_Maternity leave, REGION_RATING_CLIENT):
+    input = np.array([[DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_EDUCATION_TYPE, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State servant, 
+NAME_INCOME_TYPE_Commercial associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman, 
+NAME_INCOME_TYPE_Maternity leave, REGION_RATING_CLIENT]]).astype(np.float64)
+    if option == 'LogisticRegression':
+        prediction = nastya.predict_proba(x_test)
         pred = '{0:.{1}f}'.format(prediction[0][0], 2)
 
     else:
-        pred=0.30
+        pred=0.40
         #st.markdown('Вероятно, кредит будет погашен.')
 
     return float(pred)
@@ -62,51 +77,46 @@ def main():
     <h2 style="color:red;text-align:center;">Заполни форму</h2>
     </div>
     """
-    st.markdown(html_temp, unsafe_allow_html=True)
-
-
-
+    st.markdown(html_temp, unsafe_allow_html=True
 
 
     st.sidebar.subheader("Приложение создано для курса Diving into Darkness of Data Science")
     st.sidebar.text("Разработчик - Каравай А.Л.")
 
+    DAYS_EMPLOYED = st.slider('Стаж работы (в днях)', -17000, 0)           
+      
+    CODE_GENDER_M =st.selectbox("Женщина", ['0', '1']) 
+    CODE_GENDER_F =st.selectbox("Мужчина", ['0', '1'])
+    DAYS_BIRTH = st.slider('Возраст клиента (в днях)', -25000, 0)            
+    #NAME_EDUCATION_TYPE = st.selectbox('Уровень образования', ['Lower secondary' : 0, 'Secondary / secondary special' : 1,
+'Incomplete higher' : 2, 'Higher education' : 3, 'Academic degree' : 4])
+    NAME_INCOME_TYPE_Working= st.selectbox('Тип дохода: Рабочий',['0', '1'])
+    NAME_INCOME_TYPE_State servant= st.selectbox('Тип дохода: Госслужащий',['0', '1'])
+    NAME_INCOME_TYPE_Commercial associate= st.selectbox('Тип дохода: Специалист по коммерции',['0', '1'])  
+    NAME_INCOME_TYPE_Pensioner= st.selectbox('Тип дохода: Пенсионер',['0', '1'])  
+    NAME_INCOME_TYPE_Unemployed= st.selectbox('Тип дохода: Безработный',['0', '1'])  
+    NAME_INCOME_TYPE_Student= st.selectbox('Тип дохода: Студент',['0', '1']) 
+    NAME_INCOME_TYPE_Businessman= st.selectbox('Тип дохода: Бизнесмен',['0', '1']) 
+    NAME_INCOME_TYPE_Maternity leave= st.selectbox('Тип дохода: В декретном отпуске',['0', '1']) 
+    REGION_RATING_CLIENT= st.selectbox('Рейтинг региона проживания клиента',['1', '2', '3'])            
+          
 
-    CreditScore = st.slider('Скоринговый балл', 300, 900)
-
-    Geography = st.selectbox('География/регион', ['France', 'Germany', 'Spain'])
-    Geo = int(le1_pik.transform([Geography]))
-
-    Gender = st.selectbox('Пол', ['Male', 'Female'])
-    Gen = int(le_pik.transform([Gender]))
-
-    Age = st.slider("Возраст", 10, 95)
-
-    Tenure = st.selectbox("Стаж", ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9','10', '11', '12', '13', '14', '15'])
-
-    Balance = st.slider("Баланс", 0.00, 250000.00)
-
-    NumOfProducts = st.selectbox('Количество продуктов', ['1', '2', '3', '4'])
-
-    HasCrCard = st.selectbox("Есть кредитная БПК ?", ['0', '1'])
-
-    IsActiveMember = st.selectbox("Активный клиент ?", ['0', '1'])
-
-    EstimatedSalary = st.slider("Зарплата", 0.00, 200000.00)
 
     churn_html = """  
               <div style="background-color:#f44336;padding:20px >
-               <h2 style="color:red;text-align:center;"> Жаль, но теряем клиента.</h2>
+               <h2 style="color:red;text-align:center;"> К сожалению, велика вероятность, что клиент уйдет в дефолт.</h2>
                </div>
             """
     no_churn_html = """  
               <div style="background-color:#94be8d;padding:20px >
-               <h2 style="color:green ;text-align:center;"> Ура, клиент остаётся в банке !!!</h2>
+               <h2 style="color:green ;text-align:center;"> Вероятно, кредит будет погашен!!!</h2>
                </div>
             """
 
     if st.button('Сделать прогноз'):
-        output = predict_churn(CreditScore, Geo, Gen, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary)
+        output = predict_default(DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_EDUCATION_TYPE, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State servant, 
+NAME_INCOME_TYPE_Commercial associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman, 
+NAME_INCOME_TYPE_Maternity leave, REGION_RATING_CLIENT)
         st.success('Вероятность дефолта составляет {}'.format(output))
         st.balloons()
 
