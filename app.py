@@ -59,8 +59,8 @@ NAME_INCOME_TYPE_Businessman,  REGION_RATING_CLIENT]]).astype(np.float64)
         prediction = model.predict_proba(input)
         pred = '{0:.{1}f}'.format(prediction[0][0], 2)
 
-    else:
-        pred=0.40
+    #else:
+        #pred=0.40
         #st.markdown('Вероятно, кредит будет погашен.')
 
     return float(pred)
@@ -75,8 +75,8 @@ def main():
     """
     st.markdown(html_temp, unsafe_allow_html=True
 
-    #st.sidebar.subheader("Приложение создано для курса Diving into Darkness of Data Science")
-    #st.sidebar.text("Разработчик - Каравай А.Л.")
+    st.sidebar.subheader("Приложение создано для курса Diving into Darkness of Data Science")
+    st.sidebar.text("Разработчик - Каравай А.Л.")
                 
     #DAYS_EMPLOYED = st.slider('Стаж работы (в днях)', -17000, 0)           
     CODE_GENDER_M =st.selectbox("Женщина", ['0', '1']) 
@@ -112,7 +112,7 @@ def main():
 NAME_INCOME_TYPE_Commercial associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman, 
 NAME_INCOME_TYPE_Maternity leave, REGION_RATING_CLIENT)
         st.success('Вероятность дефолта составляет {}'.format(output))
-        st.balloons()
+        #st.balloons()
 
         if output >= 0.5:
             st.markdown(default_html, unsafe_allow_html= True)
