@@ -50,7 +50,7 @@ model=pickle.load(open("model.pkl","rb"))
 #le1_pik=pickle.load(open("label_encoding_for_geo.pkl","rb"))
 
     
-def predict_default(DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, 
+def predict_churn(DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, 
 NAME_INCOME_TYPE_Businessman,  REGION_RATING_CLIENT):
     input = np.array([[DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, 
 NAME_INCOME_TYPE_Businessman,  REGION_RATING_CLIENT]]).astype(np.float64)
@@ -73,7 +73,7 @@ def main():
     <h2 style="color:red;text-align:center;">Заполни форму</h2>
     </div>
     """
-    st.markdown(html_temp, unsafe_allow_html=True
+    st.markdown(html_temp, unsafe_allow_html=True)
 
     st.sidebar.subheader("Приложение создано для курса Diving into Darkness of Data Science")
     st.sidebar.text("Разработчик - Каравай А.Л.")
@@ -96,29 +96,28 @@ def main():
           
 
 
-    default_html = """  
+    churn_html = """  
               <div style="background-color:#f44336;padding:20px >
                <h2 style="color:red;text-align:center;"> К сожалению, велика вероятность, что клиент уйдет в дефолт.</h2>
                </div>
             """
-    no_default_html = """  
+    no_churn_html = """  
               <div style="background-color:#94be8d;padding:20px >
                <h2 style="color:green ;text-align:center;"> Вероятно, кредит будет погашен!!!</h2>
                </div>
             """
 
     if st.button('Сделать прогноз'):
-        output = predict_default(DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_EDUCATION_TYPE, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State servant, 
-NAME_INCOME_TYPE_Commercial associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman, 
-NAME_INCOME_TYPE_Maternity leave, REGION_RATING_CLIENT)
+        output = predict_churn(DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, 
+NAME_INCOME_TYPE_Businessman,  REGION_RATING_CLIENT)
         st.success('Вероятность дефолта составляет {}'.format(output))
         #st.balloons()
 
         if output >= 0.5:
-            st.markdown(default_html, unsafe_allow_html= True)
+            st.markdown(churn_html, unsafe_allow_html= True)
 
         else:
-            st.markdown(no_default_html, unsafe_allow_html= True)
+            st.markdown(no_churn_html, unsafe_allow_html= True)
 
 if __name__=='__main__':
     main()
