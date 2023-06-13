@@ -82,8 +82,7 @@ def main():
     CODE_GENDER_M =st.selectbox("Женщина", ['0', '1']) 
     CODE_GENDER_F =st.selectbox("Мужчина", ['0', '1'])
     DAYS_BIRTH = st.slider('Возраст клиента (в днях)', -25000, 0)            
-    #NAME_EDUCATION_TYPE = st.selectbox('Уровень образования', ['Lower secondary' : 0, 'Secondary / secondary special' : 1,
-'Incomplete higher' : 2, 'Higher education' : 3, 'Academic degree' : 4])
+    #NAME_EDUCATION_TYPE = st.selectbox('Уровень образования', ['Lower secondary' : 0, 'Secondary / secondary special' : 1,'Incomplete higher' : 2, 'Higher education' : 3, 'Academic degree' : 4])
     NAME_INCOME_TYPE_Working= st.selectbox('Тип дохода: Рабочий',['0', '1'])
    # NAME_INCOME_TYPE_State servant= st.selectbox('Тип дохода: Госслужащий',['0', '1'])
    # NAME_INCOME_TYPE_Commercial associate= st.selectbox('Тип дохода: Специалист по коммерции',['0', '1'])  
