@@ -49,9 +49,6 @@ model=pickle.load(open("model.pkl","rb"))
 #le_pik=pickle.load(open("label_encoding_for_gender.pkl","rb"))
 #le1_pik=pickle.load(open("label_encoding_for_geo.pkl","rb"))
 
-'Lower secondary' : 0, 'Secondary / secondary special' : 1,
-'Incomplete higher' : 2, 'Higher education' : 3, 'Academic degree' : 4
-             
     
 def predict_default(DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_EDUCATION_TYPE, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State servant, 
 NAME_INCOME_TYPE_Commercial associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman, 
