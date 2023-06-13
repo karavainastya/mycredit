@@ -37,21 +37,20 @@ st.subheader(option)
 
 
 #Importing model and label encoders
-model=pickle.load(open("final_xg_model.pkl","rb"))
+model=pickle.load(open("model.pkl","rb"))
 #model_1 = pickle.load(open("final_rf_model.pkl","rb"))
-le_pik=pickle.load(open("label_encoding_for_gender.pkl","rb"))
-le1_pik=pickle.load(open("label_encoding_for_geo.pkl","rb"))
+#le_pik=pickle.load(open("label_encoding_for_gender.pkl","rb"))
+#le1_pik=pickle.load(open("label_encoding_for_geo.pkl","rb"))
 
-
-def predict_churn(CreditScore, Geo, Gen, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary):
-    input = np.array([[CreditScore, Geo, Gen, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary]]).astype(np.float64)
-    if option == 'XGBoost':
+def predict_default(DAYS_EMPLOYED, CODE_GENDER, DAYS_BIRTH, NAME_EDUCATION_TYPE, NAME_INCOME_TYPE, REGION_RATING_CLIENT):
+    input = np.array([[DAYS_EMPLOYED, CODE_GENDER, DAYS_BIRTH, NAME_EDUCATION_TYPE, NAME_INCOME_TYPE, REGION_RATING_CLIENT]]).astype(np.float64)
+    if option == 'Логистическая регрессия':
         prediction = model.predict_proba(input)
         pred = '{0:.{1}f}'.format(prediction[0][0], 2)
 
     else:
         pred=0.30
-        #st.markdown('Наверное, клиент останется в банке, но это не точно да и вообще надо звонить в Битву экстрасенсов.')
+        #st.markdown('Вероятно, кредит будет погашен.')
 
     return float(pred)
 
@@ -59,7 +58,7 @@ def predict_churn(CreditScore, Geo, Gen, Age, Tenure, Balance, NumOfProducts, Ha
 def main():
     st.title("Прогноз вероятности дефолта клиента")
     html_temp = """
-    <div style="background-color:white ;padding:10px">
+    <div style="background-color:yellow ;padding:10px">
     <h2 style="color:red;text-align:center;">Заполни форму</h2>
     </div>
     """
