@@ -97,7 +97,7 @@ def main():
     if int(DAYS_BIRTH)- int(DAYS_EMPLOYED)< 18:
             st.error('Некорректный ввод данных по возрасту клиента и/или стажу работы')
         
-    CNT_CHILDREN = st.slider('Количество детей:', 0, 20)
+    CNT_CHILDREN = st.slider('Количество детей:', 0, 10)
     FLAG_OWN_CAR =st.selectbox("Наличие автомобиля:", ['0', '1'])
     AMT_INCOME_TOTAL = st.slider('Годовой доход клиента:', 0,  500000)
     AMT_CREDIT = st.slider('Сумма кредита:', 0,  500000)
