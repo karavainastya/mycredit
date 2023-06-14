@@ -85,6 +85,8 @@ def main():
 #NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT
     CODE_GENDER_M =st.selectbox("Пол: женский", ['0', '1'])
     CODE_GENDER_F =st.selectbox("Пол: мужской", ['0', '1'])
+    if int(CODE_GENDER_M)=1 and int(CODE_GENDER_F)=1:
+        st.error('Некорректный ввод данных по полу')
     CODE_GENDER_XNA=st.selectbox("Пол: небинарный", ['0', '1'])
     DAYS_BIRTH = st.slider('Возраст клиента: Примечание: кредит выдается клиентам старше 22 лет', 22, 70) 
         #if int(Возраст)- int(Стаж)< 18:
