@@ -88,7 +88,7 @@ def main():
     DAYS_BIRTH = st.slider('Возраст клиента: Примечание: кредит выдается клиентам старше 22 лет', 22, 70) 
     
     DAYS_EMPLOYED = st.slider('Стаж работы:', 0, 55) 
-    CNT_CHILDREN = st.slider('Количество детей:', 0, 10)
+    CNT_CHILDREN = st.slider('Количество детей:', 0, 20)
     FLAG_OWN_CAR =st.selectbox("Наличие автомобиля:", ['0', '1'])
     AMT_INCOME_TOTAL = st.slider('Годовой доход клиента:', 0,  100000000)
     AMT_CREDIT = st.slider('Сумма кредита:', 0,  5000000)
