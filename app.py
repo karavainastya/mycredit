@@ -38,8 +38,8 @@ set_png_as_page_bg('default1.jpg')
 
 
 classifier_name=['LogisticRegression', 'LightGBM']
-option = st.sidebar.selectbox('Какой алгоритм запустить?', classifier_name)
-st.subheader(option)
+#option = st.sidebar.selectbox('Какой алгоритм запустить?', classifier_name)
+#st.subheader(option)
 
 
 
@@ -77,7 +77,7 @@ def main():
     st.markdown(html_temp, unsafe_allow_html=True)
 
     st.sidebar.subheader("Приложение создано для курса Diving into Darkness of Data Science")
-    st.sidebar.text("Разработчик - Каравай А.Л.")
+    st.sidebar.info("Разработчик - Каравай А.Л.")
     
  #CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, DAYS_BIRTH, DAYS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL, AMT_CREDIT, AMT_GOODS_PRICE, NAME_EDUCATION_TYPE,                
 #NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
