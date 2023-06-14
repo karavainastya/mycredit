@@ -126,7 +126,7 @@ def main():
 
     if st.button('Сделать прогноз'):
         output = predict_churn(CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, DAYS_BIRTH, DAYS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL, AMT_CREDIT, AMT_GOODS_PRICE, NAME_EDUCATION_TYPE,                
-NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
+NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial_associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
 NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT)
         st.success('Вероятность дефолта составляет {}'.format(output))
         #st.balloons()
