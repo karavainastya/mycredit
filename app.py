@@ -105,20 +105,17 @@ def main():
     NAME_EDUCATION_TYPE = st.selectbox('Уровень образования: Примечание: 0 - базовое школьное образование, 1 - среднее/среднее специальное образование, 2 - неоконченное высшее образование, 3 - высшее образование, 4 - ученая степень.',['0', '1', '2', '3', '4'])
             
     NAME_INCOME_TYPE_Working= st.selectbox('Тип дохода: Рабочий',['0', '1'])
-    if int(NAME_INCOME_TYPE_Working)==0: 
-        NAME_INCOME_TYPE_State_servant= st.selectbox('Тип дохода: Госслужащий',['0', '1'])
-        if int(NAME_INCOME_TYPE_State_servant)==0: 
-            NAME_INCOME_TYPE_Commercial_associate= st.selectbox('Тип дохода: Специалист по коммерции',['0', '1']) 
-            if int(NAME_INCOME_TYPE_Commercial_associate)==0:
-                NAME_INCOME_TYPE_Pensioner= st.selectbox('Тип дохода: Пенсионер',['0', '1'])  
-                if int(NAME_INCOME_TYPE_Pensioner)==0: 
-                    NAME_INCOME_TYPE_Unemployed= st.selectbox('Тип дохода: Безработный',['0', '1'])
-                    if int(NAME_INCOME_TYPE_Unemployed)==0: 
-                        NAME_INCOME_TYPE_Student= st.selectbox('Тип дохода: Студент',['0', '1'])
-                        if int(NAME_INCOME_TYPE_Student)==0:
-                            NAME_INCOME_TYPE_Businessman= st.selectbox('Тип дохода: Бизнесмен',['0', '1'])
-                            if int(NAME_INCOME_TYPE_Businessman)==0:
-                                NAME_INCOME_TYPE_Maternity_leave= st.selectbox('Тип дохода: В декретном отпуске',['0', '1']) 
+    NAME_INCOME_TYPE_State_servant= st.selectbox('Тип дохода: Госслужащий',['0', '1'])
+    NAME_INCOME_TYPE_Commercial_associate= st.selectbox('Тип дохода: Специалист по коммерции',['0', '1']) 
+    NAME_INCOME_TYPE_Pensioner= st.selectbox('Тип дохода: Пенсионер',['0', '1'])  
+    NAME_INCOME_TYPE_Unemployed= st.selectbox('Тип дохода: Безработный',['0', '1'])
+    NAME_INCOME_TYPE_Student= st.selectbox('Тип дохода: Студент',['0', '1'])
+    NAME_INCOME_TYPE_Businessman= st.selectbox('Тип дохода: Бизнесмен',['0', '1'])
+    NAME_INCOME_TYPE_Maternity_leave= st.selectbox('Тип дохода: В декретном отпуске',['0', '1']) 
+    
+    if int(NAME_INCOME_TYPE_Working)==1: 
+        NAME_INCOME_TYPE_State_servant= st.selectbox('Тип дохода: Госслужащий',['0'])
+        
     REGION_RATING_CLIENT= st.selectbox('Рейтинг региона проживания клиента: Примечание: 1 - Минск, 2 - областные центры, 3 - остальные населенные пункты.', ['1', '2', '3'])            
     REG_CITY_NOT_WORK_CITY = st.selectbox('Совпадает ли адрес клиента с адресом по прописке', ['0', '1']) 
                                           
