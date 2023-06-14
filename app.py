@@ -50,10 +50,10 @@ model=pickle.load(open("model.pkl","rb"))
 #le1_pik=pickle.load(open("label_encoding_for_geo.pkl","rb"))
 
     
-def predict_churn(DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, 
-NAME_INCOME_TYPE_Businessman,  REGION_RATING_CLIENT):
-    input = np.array([[DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, 
-NAME_INCOME_TYPE_Businessman,  REGION_RATING_CLIENT]]).astype(np.float64)
+def predict_churn(DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State servant, NAME_INCOME_TYPE_Commercial associate, 
+AME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity leave, REGION_RATING_CLIENT):
+    input = np.array([[AYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State servant, NAME_INCOME_TYPE_Commercial associate, 
+AME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity leave, REGION_RATING_CLIENT]]).astype(np.float64)
     if option == 'LogisticRegression':
         #prediction = nastya.predict_proba(x_test)
         prediction = model.predict_proba(input)
@@ -84,13 +84,13 @@ def main():
     DAYS_BIRTH = st.slider('Возраст клиента (в днях)', -25000, 0)            
     #NAME_EDUCATION_TYPE = st.selectbox('Уровень образования', ['Lower secondary' : 0, 'Secondary / secondary special' : 1,'Incomplete higher' : 2, 'Higher education' : 3, 'Academic degree' : 4])
     NAME_INCOME_TYPE_Working= st.selectbox('Тип дохода: Рабочий',['0', '1'])
-   # NAME_INCOME_TYPE_State servant= st.selectbox('Тип дохода: Госслужащий',['0', '1'])
-   # NAME_INCOME_TYPE_Commercial associate= st.selectbox('Тип дохода: Специалист по коммерции',['0', '1'])  
+    NAME_INCOME_TYPE_State servant= st.selectbox('Тип дохода: Госслужащий',['0', '1'])
+    NAME_INCOME_TYPE_Commercial associate= st.selectbox('Тип дохода: Специалист по коммерции',['0', '1'])  
     NAME_INCOME_TYPE_Pensioner= st.selectbox('Тип дохода: Пенсионер',['0', '1'])  
     NAME_INCOME_TYPE_Unemployed= st.selectbox('Тип дохода: Безработный',['0', '1'])  
     NAME_INCOME_TYPE_Student= st.selectbox('Тип дохода: Студент',['0', '1']) 
     NAME_INCOME_TYPE_Businessman= st.selectbox('Тип дохода: Бизнесмен',['0', '1']) 
-   # NAME_INCOME_TYPE_Maternity leave= st.selectbox('Тип дохода: В декретном отпуске',['0', '1']) 
+    NAME_INCOME_TYPE_Maternity leave= st.selectbox('Тип дохода: В декретном отпуске',['0', '1']) 
     REGION_RATING_CLIENT= st.selectbox('Рейтинг региона проживания клиента',['1', '2', '3'])            
           
 
@@ -107,8 +107,8 @@ def main():
             """
 
     if st.button('Сделать прогноз'):
-        output = predict_churn(DAYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, 
-NAME_INCOME_TYPE_Businessman,  REGION_RATING_CLIENT)
+        output = predict_churn(AYS_EMPLOYED, CODE_GENDER_M, CODE_GENDER_F, DAYS_BIRTH, NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State servant, NAME_INCOME_TYPE_Commercial associate, 
+AME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity leave, REGION_RATING_CLIENT)
         st.success('Вероятность дефолта составляет {}'.format(output))
         #st.balloons()
 
