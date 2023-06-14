@@ -115,10 +115,6 @@ def main():
     NAME_INCOME_TYPE_Student= st.selectbox('Тип дохода: Студент',['0', '1']) 
     NAME_INCOME_TYPE_Businessman= st.selectbox('Тип дохода: Бизнесмен',['0', '1']) 
     NAME_INCOME_TYPE_Maternity_leave= st.selectbox('Тип дохода: В декретном отпуске',['0', '1']) 
-
-    if int(NAME_INCOME_TYPE_Working)==1 and (int(NAME_INCOME_TYPE_State_servant)==1 and int(NAME_INCOME_TYPE_State_servant)==1 
-     
-        st.error('Некорректный ввод данных по полу')
             
     REGION_RATING_CLIENT= st.selectbox('Рейтинг региона проживания клиента: Примечание: 1 - Минск, 2 - областные центры, 3 - остальные населенные пункты.', ['1', '2', '3'])            
     REG_CITY_NOT_WORK_CITY = st.selectbox('Совпадает ли адрес клиента с адресом по прописке', ['0', '1']) 
