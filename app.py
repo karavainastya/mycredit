@@ -113,9 +113,9 @@ def main():
     NAME_INCOME_TYPE_Businessman= st.selectbox('Тип дохода: Бизнесмен',['0', '1'])
     NAME_INCOME_TYPE_Maternity_leave= st.selectbox('Тип дохода: В декретном отпуске',['0', '1']) 
     
-    if int(NAME_INCOME_TYPE_Working)==1: 
-        int(NAME_INCOME_TYPE_State_servant) & int(NAME_INCOME_TYPE_Commercial_associate) & int(NAME_INCOME_TYPE_Pensioner) & int(NAME_INCOME_TYPE_Unemployed) & int(NAME_INCOME_TYPE_Student) & int(NAME_INCOME_TYPE_Businessman) &
-    int(NAME_INCOME_TYPE_Businessman)!=1
+    if NAME_INCOME_TYPE_Working==1: 
+        NAME_INCOME_TYPE_State_servant & NAME_INCOME_TYPE_Commercial_associate & NAME_INCOME_TYPE_Pensioner & NAME_INCOME_TYPE_Unemployed & NAME_INCOME_TYPE_Student & NAME_INCOME_TYPE_Businessman &
+    NAME_INCOME_TYPE_Businessman !=1
         
     REGION_RATING_CLIENT= st.selectbox('Рейтинг региона проживания клиента: Примечание: 1 - Минск, 2 - областные центры, 3 - остальные населенные пункты.', ['1', '2', '3'])            
     REG_CITY_NOT_WORK_CITY = st.selectbox('Совпадает ли адрес клиента с адресом по прописке', ['0', '1']) 
