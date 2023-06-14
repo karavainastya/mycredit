@@ -86,7 +86,7 @@ def main():
     CODE_GENDER_M =st.selectbox("Пол: женский", ['0', '1']) 
     CODE_GENDER_F =st.selectbox("Пол: мужской", ['0', '1'])
     CODE_GENDER_XNA=st.selectbox("Пол: небинарный", ['0', '1'])
-    DAYS_BIRTH = st.slider('Возраст клиента: Примечание: кредит выдается клиентам старше 22 лет', 22.0, 70.0) 
+    DAYS_BIRTH = st.slider('Возраст клиента: Примечание: кредит выдается клиентам старше 22 лет', 22, 70) 
     
     DAYS_EMPLOYED = st.slider('Стаж работы:', 0, 55) 
     CNT_CHILDREN = st.slider('Количество детей:', 0, 10)
