@@ -91,7 +91,7 @@ def main():
     
     DAYS_EMPLOYED = st.slider('Стаж работы:', 0, 55) 
     CNT_CHILDREN = st.slider('Количество детей:', 0, 10)
-    FLAG_OWN_CAR =st.selectbox("Наличие автомобиля:',['0', '1'])
+    FLAG_OWN_CAR =st.selectbox("Наличие автомобиля:", ['0', '1'])
     AMT_INCOME_TOTAL = st.slider('Доход клиента:', 0,  100000)
     AMT_CREDIT = st.slider('Сумма крелита:', 0,  100000)
     AMT_GOODS_PRICE = st.slider('Стоимость товара, который необходимо приобрести:', 0,  100000)
