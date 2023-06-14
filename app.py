@@ -64,8 +64,7 @@ NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Matern
     #else:
         #pred=0.40
         #st.markdown('Вероятно, кредит будет погашен.')
-
-    return float(pred)
+        return float(pred)
 
 
 def main():
