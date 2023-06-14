@@ -56,15 +56,15 @@ NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Matern
     input = np.array([[CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, DAYS_BIRTH, DAYS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL, AMT_CREDIT, AMT_GOODS_PRICE, NAME_EDUCATION_TYPE,                
 NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial_associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
 NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT]]).astype(np.float64)
-    if option == 'LogisticRegression':
-        #prediction = nastya.predict_proba(x_test)
-        prediction = model.predict_proba(input)
-        pred = '{0:.{1}f}'.format(prediction[0][0], 2)
+    #if option == 'LogisticRegression':
+        
+    prediction = model.predict_proba(input)
+    pred = '{0:.{1}f}'.format(prediction[0][0], 2)
 
     #else:
         #pred=0.40
         #st.markdown('Вероятно, кредит будет погашен.')
-        return float(pred)
+    return float(pred)
 
 
 def main():
