@@ -86,8 +86,7 @@ def main():
     CODE_GENDER_M =st.selectbox("Пол: женский", ['0', '1'])
     CODE_GENDER_F =st.selectbox("Пол: мужской", ['0', '1'])
     CODE_GENDER_XNA=st.selectbox("Пол: небинарный", ['0', '1'])
-    if (int(CODE_GENDER_M)==1 and int(CODE_GENDER_F)==1) or (int(CODE_GENDER_M)==1 and int(CODE_GENDER_XNA)==1) or (int(CODE_GENDER_F)==1 and int(CODE_GENDER_XNA)==1) or 
-    (int(CODE_GENDER_F)==1 and int(CODE_GENDER_XNA)==1 and int(CODE_GENDER_M)==1):
+    if (int(CODE_GENDER_M)==1 and int(CODE_GENDER_F)==1) or (int(CODE_GENDER_M)==1 and int(CODE_GENDER_XNA)==1) or (int(CODE_GENDER_F)==1 and int(CODE_GENDER_XNA)==1) or (int(CODE_GENDER_F)==1 and int(CODE_GENDER_XNA)==1 and int(CODE_GENDER_M)==1):
         st.error('Некорректный ввод данных по полу')
         
     DAYS_BIRTH = st.slider('Возраст клиента: Примечание: кредит выдается клиентам старше 22 лет', 22, 70) 
