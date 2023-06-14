@@ -69,10 +69,10 @@ NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Matern
 
 
 def main():
-    st.title("Прогноз вероятности дефолта клиента")
+    #st.title("Прогноз вероятности дефолта клиента")
     html_temp = """
     <div style="background-color:yellow ;padding:10px">
-    <h2 style="color:red;text-align:center;">Заполни форму</h2>
+    <h2 style="color:red;text-align:center;">Прогноз вероятности дефолта клиента</h2>
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
