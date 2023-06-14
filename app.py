@@ -113,7 +113,7 @@ def main():
     NAME_INCOME_TYPE_Businessman= st.selectbox('Тип дохода: Бизнесмен',['0', '1'])
     NAME_INCOME_TYPE_Maternity_leave= st.selectbox('Тип дохода: В декретном отпуске',['0', '1']) 
     
-    if NAME_INCOME_TYPE_Working ==1: 
+    if NAME_INCOME_TYPE_Working == 1: 
         (NAME_INCOME_TYPE_State_servant & NAME_INCOME_TYPE_Commercial_associate & NAME_INCOME_TYPE_Pensioner & NAME_INCOME_TYPE_Unemployed & NAME_INCOME_TYPE_Student & NAME_INCOME_TYPE_Businessman & NAME_INCOME_TYPE_Maternity_leave) == 0
     elif NAME_INCOME_TYPE_State_servant == 1:
         (NAME_INCOME_TYPE_Working & NAME_INCOME_TYPE_Commercial_associate & NAME_INCOME_TYPE_Pensioner & NAME_INCOME_TYPE_Unemployed & NAME_INCOME_TYPE_Student & NAME_INCOME_TYPE_Businessman & NAME_INCOME_TYPE_Maternity_leave) == 0
@@ -130,7 +130,7 @@ def main():
     elif NAME_INCOME_TYPE_Maternity_leave == 1:
         (NAME_INCOME_TYPE_Working & NAME_INCOME_TYPE_State_servant & NAME_INCOME_TYPE_Commercial_associate & NAME_INCOME_TYPE_Pensioner & NAME_INCOME_TYPE_Unemployed & NAME_INCOME_TYPE_Student & NAME_INCOME_TYPE_Businessman) == 0
     else:
-        st.error('Некорректный ввод данных по типу дохода')
+        st.error('Некорректный ввод данных по типу дохода.')
     
     
     REGION_RATING_CLIENT= st.selectbox('Рейтинг региона проживания клиента: Примечание: 1 - Минск, 2 - областные центры, 3 - остальные населенные пункты.', ['1', '2', '3'])            
