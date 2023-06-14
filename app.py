@@ -83,12 +83,17 @@ def main():
  #CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, DAYS_BIRTH, DAYS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL, AMT_CREDIT, AMT_GOODS_PRICE, NAME_EDUCATION_TYPE,                
 #NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
 #NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT
-    CODE_GENDER_M =st.selectbox("Пол: женский", ['0', '1']) 
+    CODE_GENDER_M =st.selectbox("Пол: женский", ['0', '1'])
     CODE_GENDER_F =st.selectbox("Пол: мужской", ['0', '1'])
     CODE_GENDER_XNA=st.selectbox("Пол: небинарный", ['0', '1'])
     DAYS_BIRTH = st.slider('Возраст клиента: Примечание: кредит выдается клиентам старше 22 лет', 22, 70) 
-    
-    DAYS_EMPLOYED = st.slider('Стаж работы:', 0, 55) 
+        #if int(Возраст)- int(Стаж)< 18:
+            #st.error('Некорректный ввод данных по возрасту клиента и/или стажу работы')
+            
+    DAYS_EMPLOYED = st.slider('Стаж работы:', 0, 50) 
+    if int(DAYS_BIRTH)- int(DAYS_EMPLOYED)< 18:
+            st.error('Некорректный ввод данных по возрасту клиента и/или стажу работы')
+        
     CNT_CHILDREN = st.slider('Количество детей:', 0, 20)
     FLAG_OWN_CAR =st.selectbox("Наличие автомобиля:", ['0', '1'])
     AMT_INCOME_TOTAL = st.slider('Годовой доход клиента:', 0,  500000)
