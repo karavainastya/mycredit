@@ -114,8 +114,7 @@ def main():
     NAME_INCOME_TYPE_Maternity_leave= st.selectbox('Тип дохода: В декретном отпуске',['0', '1']) 
     
     if int(NAME_INCOME_TYPE_Working) == 1: 
-        st.error('fail')
-        (NAME_INCOME_TYPE_State_servant & NAME_INCOME_TYPE_Commercial_associate & NAME_INCOME_TYPE_Pensioner & NAME_INCOME_TYPE_Unemployed & NAME_INCOME_TYPE_Student & NAME_INCOME_TYPE_Businessman & NAME_INCOME_TYPE_Maternity_leave) == 0
+        (int(NAME_INCOME_TYPE_State_servant) & int(NAME_INCOME_TYPE_Commercial_associate) & int(NAME_INCOME_TYPE_Pensioner) & int(NAME_INCOME_TYPE_Unemployed) & int(NAME_INCOME_TYPE_Student) & int(NAME_INCOME_TYPE_Businessman) & int(NAME_INCOME_TYPE_Maternity_leave)) == 0
     elif NAME_INCOME_TYPE_State_servant == 1:
         (NAME_INCOME_TYPE_Working & NAME_INCOME_TYPE_Commercial_associate & NAME_INCOME_TYPE_Pensioner & NAME_INCOME_TYPE_Unemployed & NAME_INCOME_TYPE_Student & NAME_INCOME_TYPE_Businessman & NAME_INCOME_TYPE_Maternity_leave) == 0
     elif NAME_INCOME_TYPE_Commercial_associate == 1:
