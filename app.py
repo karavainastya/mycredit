@@ -1,4 +1,4 @@
-import sklearn
+#import sklearn
 
 from sklearn.ensemble import GradientBoostingClassifier
 
@@ -129,7 +129,7 @@ def main():
         (NAME_INCOME_TYPE_Working & NAME_INCOME_TYPE_State_servant & NAME_INCOME_TYPE_Commercial_associate & NAME_INCOME_TYPE_Pensioner & NAME_INCOME_TYPE_Unemployed & NAME_INCOME_TYPE_Student & NAME_INCOME_TYPE_Maternity_leave) == 0
     elif NAME_INCOME_TYPE_Maternity_leave == 1:
         (NAME_INCOME_TYPE_Working & NAME_INCOME_TYPE_State_servant & NAME_INCOME_TYPE_Commercial_associate & NAME_INCOME_TYPE_Pensioner & NAME_INCOME_TYPE_Unemployed & NAME_INCOME_TYPE_Student & NAME_INCOME_TYPE_Businessman) == 0
-    else:
+    #else:
         #st.error('Некорректный ввод данных по типу дохода.')
     
     
