@@ -118,17 +118,17 @@ def main():
     elif int(NAME_INCOME_TYPE_State_servant) == 1:
         int(NAME_INCOME_TYPE_Working)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Businessman)==0 and int(NAME_INCOME_TYPE_Maternity_leave) == 0
     elif int(NAME_INCOME_TYPE_Commercial_associate) == 1:
-        (int(NAME_INCOME_TYPE_Working) & int(NAME_INCOME_TYPE_State_servant) & int(NAME_INCOME_TYPE_Pensioner) & int(NAME_INCOME_TYPE_Unemployed) & int(NAME_INCOME_TYPE_Student) & int(NAME_INCOME_TYPE_Businessman) & int(NAME_INCOME_TYPE_Maternity_leave)) == 0
+        int(NAME_INCOME_TYPE_Working) ==0 and int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Businessman)==0 and int(NAME_INCOME_TYPE_Maternity_leave)== 0
     elif int(NAME_INCOME_TYPE_Pensioner) == 1:
-        (int(NAME_INCOME_TYPE_Working) & int(NAME_INCOME_TYPE_State_servant) & int(NAME_INCOME_TYPE_Commercial_associate) & int(NAME_INCOME_TYPE_Unemployed) & int(NAME_INCOME_TYPE_Student) & int(NAME_INCOME_TYPE_Businessman) & int(NAME_INCOME_TYPE_Maternity_leave)) == 0
+        int(NAME_INCOME_TYPE_Working)==0 and int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Businessman)==0 and int(NAME_INCOME_TYPE_Maternity_leave) == 0
     elif int(NAME_INCOME_TYPE_Unemployed) == 1:
-        (int(NAME_INCOME_TYPE_Working) & int(NAME_INCOME_TYPE_State_servant) & int(NAME_INCOME_TYPE_Commercial_associate) & int(NAME_INCOME_TYPE_Pensioner) & int(NAME_INCOME_TYPE_Student) & int(NAME_INCOME_TYPE_Businessman) & int(NAME_INCOME_TYPE_Maternity_leave)) == 0
+        int(NAME_INCOME_TYPE_Working)==0 and int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Businessman)==0 and int(NAME_INCOME_TYPE_Maternity_leave) == 0
     elif int(NAME_INCOME_TYPE_Student) == 1:
-        (int(NAME_INCOME_TYPE_Working) & int(NAME_INCOME_TYPE_State_servant) & int(NAME_INCOME_TYPE_Commercial_associate) & int(NAME_INCOME_TYPE_Pensioner) & int(NAME_INCOME_TYPE_Unemployed) & int(NAME_INCOME_TYPE_Businessman) & int(NAME_INCOME_TYPE_Maternity_leave)) == 0
+        int(NAME_INCOME_TYPE_Working)==0 and int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Businessman)==0 int(NAME_INCOME_TYPE_Maternity_leave) == 0
     elif int(NAME_INCOME_TYPE_Businessman) == 1:
-        (int(NAME_INCOME_TYPE_Working) & int(NAME_INCOME_TYPE_State_servant) & int(NAME_INCOME_TYPE_Commercial_associate) & int(NAME_INCOME_TYPE_Pensioner) & int(NAME_INCOME_TYPE_Unemployed) & int(NAME_INCOME_TYPE_Student) & int(NAME_INCOME_TYPE_Maternity_leave)) == 0
+        int(NAME_INCOME_TYPE_Working)==0  and int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Maternity_leave)== 0
     elif int(NAME_INCOME_TYPE_Maternity_leave) == 1:
-        (int(NAME_INCOME_TYPE_Working) & int(NAME_INCOME_TYPE_State_servant) & int(NAME_INCOME_TYPE_Commercial_associate) & int(NAME_INCOME_TYPE_Pensioner) & int(NAME_INCOME_TYPE_Unemployed) & int(NAME_INCOME_TYPE_Student) & int(NAME_INCOME_TYPE_Businessman))== 0
+        int(NAME_INCOME_TYPE_Working) ==0 and int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Businessman)== 0
     else:
         st.error('Некорректный ввод данных по типу дохода.')
     
