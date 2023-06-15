@@ -129,8 +129,8 @@ def main():
         int(NAME_INCOME_TYPE_Working)==0  and int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Maternity_leave)== 0
     elif int(NAME_INCOME_TYPE_Maternity_leave) == 1:
         int(NAME_INCOME_TYPE_Working) ==0 and int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Businessman)== 0
-    else:
-        st.error('Некорректный ввод данных по типу дохода.')
+    #else:
+       # st.error('Некорректный ввод данных по типу дохода.')
     
     
     REGION_RATING_CLIENT= st.selectbox('Рейтинг региона проживания клиента: Примечание: 1 - Минск, 2 - областные центры, 3 - остальные населенные пункты.', ['1', '2', '3'])            
