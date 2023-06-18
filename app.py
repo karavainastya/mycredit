@@ -159,8 +159,8 @@ def main():
                <h2 style="color:green ;text-align:center;"> Вероятно, кредит будет погашен</h2>
                </div>
             """
-    if int(YEARS_BIRTH)- int(YEARS_EMPLOYED)< 18:
-                st.error('Ошибка!')
+    if (int(YEARS_BIRTH)- int(YEARS_EMPLOYED)< 18) and (if int(NAME_INCOME_TYPE_Working)+int(NAME_INCOME_TYPE_State_servant)+int(NAME_INCOME_TYPE_Commercial_associate)+int(NAME_INCOME_TYPE_Pensioner)+int(NAME_INCOME_TYPE_Unemployed)+int(NAME_INCOME_TYPE_Student)==0+int(NAME_INCOME_TYPE_Businessman)+int(NAME_INCOME_TYPE_Maternity_leave)!=0):
+            st.error('Ошибка!')
     else:    
         if st.button('Сделать прогноз'):
             output = predict_churn(CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, YEARS_BIRTH, YEARS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL_BYN, AMT_CREDIT_BYN, AMT_GOODS_PRICE_BYN, NAME_EDUCATION_TYPE,                
