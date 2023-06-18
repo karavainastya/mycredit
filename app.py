@@ -86,7 +86,7 @@ def main():
             #st.error('Некорректный ввод данных по возрасту клиента и/или стажу работы')
             
     YEARS_EMPLOYED = st.slider('Стаж работы:', 0, 50) 
-    if int(DAYS_BIRTH)- int(DAYS_EMPLOYED)< 18:
+    if int(YEARS_BIRTH)- int(YEARS_EMPLOYED)< 18:
             st.error('Некорректный ввод данных по возрасту клиента и/или стажу работы')
         
     CNT_CHILDREN = st.slider('Количество детей:', 0, 10)
