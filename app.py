@@ -44,7 +44,7 @@ classifier_name=['LogisticRegression', 'LightGBM']
 
 
 #Importing model and label encoders
-model=pickle.load(open("model2.pkl","rb"))
+model2=pickle.load(open("model2.pkl","rb"))
     
 def predict_churn(CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, YEARS_BIRTH, YEARS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL_BYN, AMT_CREDIT_BYN, AMT_GOODS_PRICE_BYN, NAME_EDUCATION_TYPE,                
 NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial_associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
@@ -54,7 +54,7 @@ NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Comme
 NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT, EXT_SOURCE_2]]).astype(np.float64)
     #if option == 'LogisticRegression':
         
-    prediction = model.predict_proba(input)
+    prediction = model2.predict_proba(input)
     pred = '{0:.{1}f}'.format(prediction[0][0], 2)
 
     #else:
