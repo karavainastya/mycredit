@@ -82,9 +82,7 @@ def main():
         st.error('Некорректный ввод данных по полу')
         
     YEARS_BIRTH = st.slider('Возраст клиента: Примечание: кредит выдается клиентам старше 22 лет', 22, 70) 
-        #if int(Возраст)- int(Стаж)< 18:
-            #st.error('Некорректный ввод данных по возрасту клиента и/или стажу работы')
-            
+
     YEARS_EMPLOYED = st.slider('Стаж работы:', 0, 50) 
     if int(YEARS_BIRTH)- int(YEARS_EMPLOYED)< 18:
             st.error('Некорректный ввод данных по возрасту клиента и/или стажу работы')
@@ -161,7 +159,9 @@ def main():
                <h2 style="color:green ;text-align:center;"> Вероятно, кредит будет погашен</h2>
                </div>
             """
-
+if int(YEARS_BIRTH)- int(YEARS_EMPLOYED)< 18:
+            st.error('Ошибка!')
+else:    
     if st.button('Сделать прогноз'):
         output = predict_churn(CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, YEARS_BIRTH, YEARS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL_BYN, AMT_CREDIT_BYN, AMT_GOODS_PRICE_BYN, NAME_EDUCATION_TYPE,                
 NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial_associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
