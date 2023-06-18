@@ -159,7 +159,7 @@ def main():
             """
     no_churn_html = """  
               <div style="background-color:#94be8d;padding:20px >
-               <h2 style="color:green ;text-align:center;"> Вероятно, кредит будет погашен!!!</h2>
+               <h2 style="color:green ;text-align:center;"> Вероятно, кредит будет погашен</h2>
                </div>
             """
 
@@ -168,7 +168,7 @@ def main():
 NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial_associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
 NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT, EXT_SOURCE_2)
         st.success('Вероятность дефолта составляет {}'.format(output))
-        #st.balloons()
+        st.balloons()
     
         if output >= 0.5:
             st.markdown(churn_html, unsafe_allow_html= True)
