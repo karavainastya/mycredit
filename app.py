@@ -81,7 +81,7 @@ def main():
     if (int(CODE_GENDER_M)==1 and int(CODE_GENDER_F)==1) or (int(CODE_GENDER_M)==1 and int(CODE_GENDER_XNA)==1) or (int(CODE_GENDER_F)==1 and int(CODE_GENDER_XNA)==1) or (int(CODE_GENDER_F)==1 and int(CODE_GENDER_XNA)==1 and int(CODE_GENDER_M)==1):
         st.error('Некорректный ввод данных по полу')
         
-    YEARS_BIRTH = st.slider('Возраст клиента: Примечание: кредит выдается клиентам старше 22 лет', 22, 70) 
+    YEARS_BIRTH = st.slider('Возраст клиента (Примечание: кредит выдается клиентам старше 22 лет):', 22, 70) 
 
     YEARS_EMPLOYED = st.slider('Стаж работы:', 0, 50) 
     if int(YEARS_BIRTH)- int(YEARS_EMPLOYED)< 18:
@@ -159,21 +159,21 @@ def main():
                <h2 style="color:green ;text-align:center;"> Вероятно, кредит будет погашен</h2>
                </div>
             """
-if int(YEARS_BIRTH)- int(YEARS_EMPLOYED)< 18:
-            st.error('Ошибка!')
-else:    
-    if st.button('Сделать прогноз'):
-        output = predict_churn(CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, YEARS_BIRTH, YEARS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL_BYN, AMT_CREDIT_BYN, AMT_GOODS_PRICE_BYN, NAME_EDUCATION_TYPE,                
+    if int(YEARS_BIRTH)- int(YEARS_EMPLOYED)< 18:
+                st.error('Ошибка!')
+    else:    
+        if st.button('Сделать прогноз'):
+            output = predict_churn(CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, YEARS_BIRTH, YEARS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL_BYN, AMT_CREDIT_BYN, AMT_GOODS_PRICE_BYN, NAME_EDUCATION_TYPE,                
 NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial_associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
 NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT, EXT_SOURCE_2)
-        st.success('Вероятность дефолта составляет {}'.format(output))
+            st.success('Вероятность дефолта составляет {}'.format(output))
         #st.balloons()
     
-        if output >= 0.5:
-            st.markdown(churn_html, unsafe_allow_html= True)
+            if output >= 0.5:
+                st.markdown(churn_html, unsafe_allow_html= True)
 
-        else:
-            st.markdown(no_churn_html, unsafe_allow_html= True)
+            else:
+                st.markdown(no_churn_html, unsafe_allow_html= True)
 
 if __name__=='__main__':
     main()
