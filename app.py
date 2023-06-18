@@ -136,7 +136,7 @@ def main():
                <h2 style="color:green ;text-align:center;"> Вероятно, кредит будет погашен</h2>
                </div>
             """
-    if ((int(CODE_GENDER_M)+int(CODE_GENDER_F)+int(CODE_GENDER_XNA))!=1) or (int(YEARS_BIRTH)- int(YEARS_EMPLOYED)< 18) or ((int(NAME_INCOME_TYPE_Working)+int(NAME_INCOME_TYPE_State_servant)+int(NAME_INCOME_TYPE_Commercial_associate)+int(NAME_INCOME_TYPE_Pensioner)+int(NAME_INCOME_TYPE_Unemployed)+int(NAME_INCOME_TYPE_Student)==0+int(NAME_INCOME_TYPE_Businessman)+int(NAME_INCOME_TYPE_Maternity_leave))!=1):
+    if ((int(CODE_GENDER_M)+int(CODE_GENDER_F)+int(CODE_GENDER_XNA))!=1) or (int(YEARS_BIRTH)- int(YEARS_EMPLOYED)< 18) or ((int(NAME_INCOME_TYPE_Working)+int(NAME_INCOME_TYPE_State_servant)+int(NAME_INCOME_TYPE_Commercial_associate)+int(NAME_INCOME_TYPE_Pensioner)+int(NAME_INCOME_TYPE_Unemployed)+int(NAME_INCOME_TYPE_Student)+int(NAME_INCOME_TYPE_Businessman)+int(NAME_INCOME_TYPE_Maternity_leave))!=1):
             st.error('Ошибка!')
     else:    
         if st.button('Сделать прогноз'):
