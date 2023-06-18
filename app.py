@@ -33,7 +33,7 @@ def set_png_as_page_bg(png_file):
 
     st.markdown(page_bg_img, unsafe_allow_html=True)
     return
-set_png_as_page_bg('default1.jpg')
+set_png_as_page_bg('fon.jpg')
 
 
 #classifier_name=['LogisticRegression', 'LightGBM']
