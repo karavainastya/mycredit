@@ -94,7 +94,7 @@ def main():
     AMT_INCOME_TOTAL_BYN = st.slider('Среднемесячный доход клиента:', 0,  50000)
     AMT_CREDIT_BYN = st.slider('Сумма кредита:', 0,  120000)
     AMT_GOODS_PRICE_BYN  = st.slider('Стоимость товара, который необходимо приобрести:', 0,  120000)
-    EXT_SOURCE_2 = st.slider('Кредитный рейтинг клиента:', 0,  1)
+    EXT_SOURCE_2 = st.slider('Кредитный рейтинг клиента:', 0,  10)
     NAME_EDUCATION_TYPE = st.selectbox('Уровень образования: Примечание: 0 - базовое школьное образование, 1 - среднее/среднее специальное образование, 2 - неоконченное высшее образование, 3 - высшее образование, 4 - ученая степень.',['0', '1', '2', '3', '4'])
             
     NAME_INCOME_TYPE_Working= st.selectbox('Тип дохода: Рабочий',['0', '1'])
@@ -167,7 +167,7 @@ def main():
 NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial_associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
 NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT, EXT_SOURCE_2)
         st.success('Вероятность дефолта составляет {}'.format(output))
-        st.balloons()
+        #st.balloons()
     
         if output >= 0.5:
             st.markdown(churn_html, unsafe_allow_html= True)
