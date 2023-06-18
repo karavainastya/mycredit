@@ -91,7 +91,7 @@ def main():
         
     CNT_CHILDREN = st.slider('Количество детей:', 0, 10)
     FLAG_OWN_CAR =st.selectbox("Наличие автомобиля:", ['0', '1'])
-    AMT_INCOME_TOTAL_BYN = st.slider('Среднемесячный доход клиента:', 0,  50000)
+    AMT_INCOME_TOTAL_BYN = st.slider('Среднемесячный доход клиента:', 0,  500)
     AMT_CREDIT_BYN = st.slider('Сумма кредита:', 0,  120000)
     AMT_GOODS_PRICE_BYN  = st.slider('Стоимость товара, который необходимо приобрести:', 0,  120000)
     EXT_SOURCE_2 = st.slider('Кредитный рейтинг клиента:', 0.0,  1.0)
