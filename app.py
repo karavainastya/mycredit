@@ -44,18 +44,14 @@ classifier_name=['LogisticRegression', 'LightGBM']
 
 
 #Importing model and label encoders
-model=pickle.load(open("model.pkl","rb"))
-#model_1 = pickle.load(open("final_rf_model.pkl","rb"))
-#le_pik=pickle.load(open("label_encoding_for_gender.pkl","rb"))
-#le1_pik=pickle.load(open("label_encoding_for_geo.pkl","rb"))
-
+model=pickle.load(open("model2.pkl","rb"))
     
-def predict_churn(CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, DAYS_BIRTH, DAYS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL, AMT_CREDIT, AMT_GOODS_PRICE, NAME_EDUCATION_TYPE,                
+def predict_churn(CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, YEARS_BIRTH, YEARS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL_BYN, AMT_CREDIT_BYN, AMT_GOODS_PRICE_BYN, NAME_EDUCATION_TYPE,                
 NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial_associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
-NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT):
-    input = np.array([[CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, DAYS_BIRTH, DAYS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL, AMT_CREDIT, AMT_GOODS_PRICE, NAME_EDUCATION_TYPE,                
+NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT, EXT_SOURCE_2):
+    input = np.array([[CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, YEARS_BIRTH, YEARS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL_BYN, AMT_CREDIT_BYN, AMT_GOODS_PRICE_BYN, NAME_EDUCATION_TYPE,                
 NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial_associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
-NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT]]).astype(np.float64)
+NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT, EXT_SOURCE_2]]).astype(np.float64)
     #if option == 'LogisticRegression':
         
     prediction = model.predict_proba(input)
@@ -80,28 +76,26 @@ def main():
     st.sidebar.info("Разработчик - Каравай А.Л.")
     st.sidebar.image("my.jpg", width=300)
     
- #CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, DAYS_BIRTH, DAYS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL, AMT_CREDIT, AMT_GOODS_PRICE, NAME_EDUCATION_TYPE,                
-#NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
-#NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT
     CODE_GENDER_M =st.selectbox("Пол: женский", ['0', '1'])
     CODE_GENDER_F =st.selectbox("Пол: мужской", ['0', '1'])
     CODE_GENDER_XNA=st.selectbox("Пол: небинарный", ['0', '1'])
     if (int(CODE_GENDER_M)==1 and int(CODE_GENDER_F)==1) or (int(CODE_GENDER_M)==1 and int(CODE_GENDER_XNA)==1) or (int(CODE_GENDER_F)==1 and int(CODE_GENDER_XNA)==1) or (int(CODE_GENDER_F)==1 and int(CODE_GENDER_XNA)==1 and int(CODE_GENDER_M)==1):
         st.error('Некорректный ввод данных по полу')
         
-    DAYS_BIRTH = st.slider('Возраст клиента: Примечание: кредит выдается клиентам старше 22 лет', 22, 70) 
+    YEARS_BIRTH = st.slider('Возраст клиента: Примечание: кредит выдается клиентам старше 22 лет', 22, 70) 
         #if int(Возраст)- int(Стаж)< 18:
             #st.error('Некорректный ввод данных по возрасту клиента и/или стажу работы')
             
-    DAYS_EMPLOYED = st.slider('Стаж работы:', 0, 50) 
+    YEARS_EMPLOYED = st.slider('Стаж работы:', 0, 50) 
     if int(DAYS_BIRTH)- int(DAYS_EMPLOYED)< 18:
             st.error('Некорректный ввод данных по возрасту клиента и/или стажу работы')
         
     CNT_CHILDREN = st.slider('Количество детей:', 0, 10)
     FLAG_OWN_CAR =st.selectbox("Наличие автомобиля:", ['0', '1'])
-    AMT_INCOME_TOTAL = st.slider('Годовой доход клиента:', 0,  500000)
-    AMT_CREDIT = st.slider('Сумма кредита:', 0,  500000)
-    AMT_GOODS_PRICE = st.slider('Стоимость товара, который необходимо приобрести:', 0,  500000)
+    AMT_INCOME_TOTAL_BYN = st.slider('Среднемесячный доход клиента:', 0,  50000)
+    AMT_CREDIT_BYN = st.slider('Сумма кредита:', 0,  120000)
+    AMT_GOODS_PRICE_BYN  = st.slider('Стоимость товара, который необходимо приобрести:', 0,  120000)
+    EXT_SOURCE_2 = st.slider('Кредитный рейтинг клиента:', 0,  1)
     NAME_EDUCATION_TYPE = st.selectbox('Уровень образования: Примечание: 0 - базовое школьное образование, 1 - среднее/среднее специальное образование, 2 - неоконченное высшее образование, 3 - высшее образование, 4 - ученая степень.',['0', '1', '2', '3', '4'])
             
     NAME_INCOME_TYPE_Working= st.selectbox('Тип дохода: Рабочий',['0', '1'])
@@ -170,17 +164,11 @@ def main():
             """
 
     if st.button('Сделать прогноз'):
-        output = predict_churn(CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, DAYS_BIRTH, DAYS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL, AMT_CREDIT, AMT_GOODS_PRICE, NAME_EDUCATION_TYPE,                
+        output = predict_churn(CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, YEARS_BIRTH, YEARS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL_BYN, AMT_CREDIT_BYN, AMT_GOODS_PRICE_BYN, NAME_EDUCATION_TYPE,                
 NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial_associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
-NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT)
+NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT, EXT_SOURCE_2)
         st.success('Вероятность дефолта составляет {}'.format(output))
         #st.balloons()
-
-    #CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, DAYS_BIRTH, DAYS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL, AMT_CREDIT, AMT_GOODS_PRICE, NAME_EDUCATION_TYPE,                
-#NAME_INCOME_TYPE_Working, NAME_INCOME_TYPE_State_servant, NAME_INCOME_TYPE_Commercial associate, NAME_INCOME_TYPE_Pensioner, NAME_INCOME_TYPE_Unemployed, 
-#NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Maternity_leave, REG_CITY_NOT_WORK_CITY, REGION_RATING_CLIENT
-   
-
     
         if output >= 0.5:
             st.markdown(churn_html, unsafe_allow_html= True)
