@@ -73,7 +73,7 @@ def main():
 
     st.sidebar.subheader("Приложение создано для курса Diving into Darkness of Data Science")
     st.sidebar.info("Разработчик - Каравай А.Л.")
-    st.sidebar.image("defgif.gif", width=300)
+    st.sidebar.image("my.jpg", width=300)
     
     CODE_GENDER_M =st.selectbox("Пол: женский", ['0', '1'])
     CODE_GENDER_F =st.selectbox("Пол: мужской", ['0', '1'])
