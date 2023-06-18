@@ -1,7 +1,7 @@
 #import sklearn
 
 from sklearn.ensemble import GradientBoostingClassifier
-
+from lightgbm import LGBMClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
 from sklearn.metrics import confusion_matrix
