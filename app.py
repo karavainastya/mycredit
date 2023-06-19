@@ -117,7 +117,7 @@ def main():
                </div>
             """
     if ((int(CODE_GENDER_M)+int(CODE_GENDER_F)+int(CODE_GENDER_XNA))!=1) or (int(YEARS_BIRTH)- int(YEARS_EMPLOYED)< 18) or ((int(NAME_INCOME_TYPE_Working)+int(NAME_INCOME_TYPE_State_servant)+int(NAME_INCOME_TYPE_Commercial_associate)+int(NAME_INCOME_TYPE_Pensioner)+int(NAME_INCOME_TYPE_Unemployed)+int(NAME_INCOME_TYPE_Student)+int(NAME_INCOME_TYPE_Businessman)+int(NAME_INCOME_TYPE_Maternity_leave))!=1):
-            st.error('Ошибка!')
+            st.error('Ошибка, укажите, пожалуйста, корректно данные!')
     else:    
         if st.button('Сделать прогноз'):
             output = predict_churn(CODE_GENDER_M, CODE_GENDER_F, CODE_GENDER_XNA, YEARS_BIRTH, YEARS_EMPLOYED, CNT_CHILDREN, FLAG_OWN_CAR, AMT_INCOME_TOTAL_BYN, AMT_CREDIT_BYN, NAME_EDUCATION_TYPE,                
