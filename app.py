@@ -89,8 +89,8 @@ def main():
         
     CNT_CHILDREN = st.slider('Количество детей:', 0, 10)
     FLAG_OWN_CAR =st.selectbox("Наличие автомобиля:", ['0', '1'])
-    AMT_INCOME_TOTAL_BYN = st.slider('Годовой доход клиента:', 0.00,  10000.00)
-    AMT_CREDIT_BYN = st.slider('Сумма кредита:', 0.00,  10000.00)
+    AMT_INCOME_TOTAL_BYN = st.slider('Годовой доход клиента:', 0.00,  100000.00)
+    AMT_CREDIT_BYN = st.slider('Сумма кредита:', 0.00,  100000.00)
     EXT_SOURCE_2 = st.slider('Кредитный рейтинг клиента:', 0.0,  1.0)
     NAME_EDUCATION_TYPE = st.selectbox('Уровень образования: Примечание: 0 - базовое школьное образование, 1 - среднее/среднее специальное образование, 2 - неоконченное высшее образование, 3 - высшее образование, 4 - ученая степень.',['0', '1', '2', '3', '4'])
             
@@ -102,28 +102,8 @@ def main():
     NAME_INCOME_TYPE_Student= st.selectbox('Тип дохода: Студент',['0', '1'])
     NAME_INCOME_TYPE_Businessman= st.selectbox('Тип дохода: Бизнесмен',['0', '1'])
     NAME_INCOME_TYPE_Maternity_leave= st.selectbox('Тип дохода: В декретном отпуске',['0', '1']) 
-  
-   # if int(NAME_INCOME_TYPE_Working) == 1: 
-      #  int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Businessman)==0 and int(NAME_INCOME_TYPE_Maternity_leave)== 0
-   # elif int(NAME_INCOME_TYPE_State_servant) == 1:
-     #   int(NAME_INCOME_TYPE_Working)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Businessman)==0 and int(NAME_INCOME_TYPE_Maternity_leave) == 0
-  #  elif int(NAME_INCOME_TYPE_Commercial_associate) == 1:
-     #   int(NAME_INCOME_TYPE_Working) ==0 and int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Businessman)==0 and int(NAME_INCOME_TYPE_Maternity_leave)== 0
- #   elif int(NAME_INCOME_TYPE_Pensioner) == 1:
-    #    int(NAME_INCOME_TYPE_Working)==0 and int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Businessman)==0 and int(NAME_INCOME_TYPE_Maternity_leave) == 0
-  #  elif int(NAME_INCOME_TYPE_Unemployed) == 1:
-    #    int(NAME_INCOME_TYPE_Working)==0 and int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Businessman)==0 and int(NAME_INCOME_TYPE_Maternity_leave) == 0
-  #  elif int(NAME_INCOME_TYPE_Student) == 1:
-    #    int(NAME_INCOME_TYPE_Working)==0 and int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Businessman)==0 and int(NAME_INCOME_TYPE_Maternity_leave) == 0
-  #  elif int(NAME_INCOME_TYPE_Businessman) == 1:
-    #    int(NAME_INCOME_TYPE_Working)==0  and int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Maternity_leave)== 0
- #   elif int(NAME_INCOME_TYPE_Maternity_leave) == 1:
-     #   int(NAME_INCOME_TYPE_Working) ==0 and int(NAME_INCOME_TYPE_State_servant)==0 and int(NAME_INCOME_TYPE_Commercial_associate)==0 and int(NAME_INCOME_TYPE_Pensioner)==0 and int(NAME_INCOME_TYPE_Unemployed)==0 and int(NAME_INCOME_TYPE_Student)==0 and int(NAME_INCOME_TYPE_Businessman)== 0
-    #else:
-       # st.error('Некорректный ввод данных по типу дохода.')
-    
-    
-    REGION_RATING_CLIENT= st.selectbox('Рейтинг региона проживания клиента: Примечание: 1 - Минск, 2 - областные центры, 3 - остальные населенные пункты.', ['1', '2', '3'])            
+ 
+    REGION_RATING_CLIENT= st.selectbox('Рейтинг региона проживания клиента (Примечание: 1 - Минск, 2 - областные центры, 3 - остальные населенные пункты):', ['1', '2', '3'])            
     REG_CITY_NOT_WORK_CITY = st.selectbox('Совпадает ли адрес клиента с адресом по прописке', ['0', '1']) 
                                           
     churn_html = """  
@@ -148,6 +128,7 @@ NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Matern
     
             if output >= 0.5:
                 st.markdown(churn_html, unsafe_allow_html= True)
+                st.balloons()
 
             else:
                 st.markdown(no_churn_html, unsafe_allow_html= True)
