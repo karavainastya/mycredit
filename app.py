@@ -128,10 +128,10 @@ NAME_INCOME_TYPE_Student, NAME_INCOME_TYPE_Businessman,  NAME_INCOME_TYPE_Matern
     
             if output >= 0.5:
                 st.markdown(churn_html, unsafe_allow_html= True)
-                st.balloons()
-
+            
             else:
                 st.markdown(no_churn_html, unsafe_allow_html= True)
+                st.balloons()
 
 if __name__=='__main__':
     main()
